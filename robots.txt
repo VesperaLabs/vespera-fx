@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vesperalabs.github.io/vespera-fx/sitemap.xml
