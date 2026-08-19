@@ -14,6 +14,10 @@ body {
   font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
+body.lightbox-open {
+  overflow: hidden;
+}
+
 header {
   padding: 32px 48px;
   display: flex;
@@ -259,6 +263,13 @@ nav a.active {
 .card {
   cursor: pointer;
   /* Signals to the visitor that clicking this does something */
+}
+
+.card:focus-visible,
+.lightbox-close:focus-visible,
+.lightbox-download:focus-visible {
+  outline: 3px solid #A9A6FF;
+  outline-offset: 3px;
 }
 
 /* --- Lightbox: the full-screen viewer that appears when you click a card --- */

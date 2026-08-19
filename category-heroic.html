@@ -18,7 +18,7 @@
   <meta name="twitter:description" content="Original heroic wallpapers with guardians, emblems, energy, and cinematic dark scenes.">
   <meta name="twitter:image" content="https://vesperalabs.github.io/vespera-fx/images/nightsky-crescent-moon.jpg">
   <link rel="icon" type="image/png" href="logo.png">
-  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="styles.css?v=7">
 </head>
 
 <body>
@@ -87,8 +87,8 @@
 
   </section>
 
-  <div class="lightbox" id="lightbox">
-    <button class="lightbox-close" id="lightboxClose">&times;</button>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxName" aria-describedby="lightboxMeta" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close wallpaper viewer">&times;</button>
     <img class="lightbox-image" id="lightboxImage" src="" alt="">
     <div class="lightbox-info">
       <h3 id="lightboxName"></h3>
@@ -101,6 +101,6 @@
     &copy; 2026 Vespera FX &middot; <a href="privacy.html" style="color: #6B6B6B;">Privacy Policy</a>
   </footer>
 
-  <script src="script.js?v=6"></script>
+  <script src="script.js?v=7"></script>
 </body>
 </html>

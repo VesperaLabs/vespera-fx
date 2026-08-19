@@ -16,37 +16,73 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // querySelectorAll finds EVERY element matching a CSS selector - here, every .card.
   const cards = document.querySelectorAll('.card');
+  let lastFocusedCard = null;
+
+  // A card is visually clickable already. These attributes make that action
+  // available to keyboard and screen-reader users too.
+  cards.forEach(card => {
+    const label = card.querySelector('.label').textContent;
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-label', `Open ${label} wallpaper`);
+  });
+
+  function openLightbox(card) {
+    // Inside THIS card, find its image and its label text.
+    const img = card.querySelector('img');
+    const label = card.querySelector('.label').textContent;
+
+    // The card shows a small thumbnail for fast loading, but the lightbox
+    // needs the full-resolution original - that's stored in data-full.
+    lightboxImage.src = img.dataset.full || img.src;
+    lightboxImage.alt = img.alt;
+
+    // Read the resolution and file size we stored on the card itself
+    // (data-resolution and data-size attributes - see the HTML for these).
+    lightboxName.textContent = label;
+    lightboxMeta.textContent = card.dataset.resolution + ' · ' + card.dataset.size;
+
+    // Point the download link at the same image, and give the downloaded
+    // file a clean name based on the wallpaper's label instead of a random filename.
+    lightboxDownload.href = img.dataset.full || img.src;
+    lightboxDownload.setAttribute('download', label.replace(/\s+/g, '-').toLowerCase() + '.jpg');
+
+    // Remember where the visitor came from, so closing the viewer returns
+    // keyboard focus to that exact wallpaper card.
+    lastFocusedCard = card;
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lightbox-open');
+    lightboxClose.focus();
+  }
+
+  function closeLightbox() {
+    if (!lightbox.classList.contains('open')) return;
+
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('lightbox-open');
+
+    if (lastFocusedCard && document.body.contains(lastFocusedCard)) {
+      lastFocusedCard.focus();
+    }
+  }
 
   // .forEach runs the same code once for each card found above.
   cards.forEach(card => {
-    card.addEventListener('click', () => {
-      // Inside THIS card, find its image and its label text.
-      const img = card.querySelector('img');
-      const label = card.querySelector('.label').textContent;
+    card.addEventListener('click', () => openLightbox(card));
 
-      // The card shows a small thumbnail for fast loading, but the lightbox
-      // needs the full-resolution original - that's stored in data-full.
-      lightboxImage.src = img.dataset.full || img.src;
-      lightboxImage.alt = img.alt;
-
-      // Read the resolution and file size we stored on the card itself
-      // (data-resolution and data-size attributes - see the HTML for these).
-      lightboxName.textContent = label;
-      lightboxMeta.textContent = card.dataset.resolution + ' · ' + card.dataset.size;
-
-      // Point the download link at the same image, and give the downloaded
-      // file a clean name based on the wallpaper's label instead of a random filename.
-      lightboxDownload.href = img.dataset.full || img.src;
-      lightboxDownload.setAttribute('download', label.replace(/\s+/g, '-').toLowerCase() + '.jpg');
-
-      // Reveal the lightbox by adding the "open" class (see styles.css for what that triggers).
-      lightbox.classList.add('open');
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openLightbox(card);
+      }
     });
   });
 
   // Clicking the X button closes the lightbox.
   lightboxClose.addEventListener('click', () => {
-    lightbox.classList.remove('open');
+    closeLightbox();
   });
 
   // Clicking the dark background (but NOT the image itself) also closes it.
@@ -54,7 +90,30 @@ document.addEventListener('DOMContentLoaded', () => {
   // that's the lightbox background itself, not something inside it.
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) {
-      lightbox.classList.remove('open');
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+
+    if (e.key === 'Escape') {
+      closeLightbox();
+    }
+
+    // Keep Tab and Shift+Tab within the open viewer, rather than letting
+    // focus move to controls hidden behind the overlay.
+    if (e.key === 'Tab') {
+      const focusable = [lightboxClose, lightboxDownload];
+      const currentIndex = focusable.indexOf(document.activeElement);
+
+      if (e.shiftKey && currentIndex <= 0) {
+        e.preventDefault();
+        lightboxDownload.focus();
+      } else if (!e.shiftKey && currentIndex === focusable.length - 1) {
+        e.preventDefault();
+        lightboxClose.focus();
+      }
     }
   });
 
