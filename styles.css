@@ -339,8 +339,50 @@ nav a.active {
   /* Shows "1152 x 896 · 461 KB" style details, pulled from each image's real file data */
 }
 
-/* --- Mobile adjustments: everything above was sized for desktop. --- */
-/* This block only applies below 600px wide, i.e. phones. */
+/* --- Tablet adjustments: keep galleries comfortably two-column between
+   phone and desktop sizes instead of briefly dropping to one huge card. --- */
+@media (min-width: 601px) and (max-width: 800px) {
+
+  header {
+    padding: 24px 32px;
+  }
+
+  .hero {
+    padding: 64px 32px 48px;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .page-heading {
+    padding: 48px 32px 28px;
+  }
+
+  .search-bar {
+    padding: 0 32px 28px;
+  }
+
+  .no-results {
+    padding: 0 32px 48px;
+  }
+
+  .category-label,
+  .breadcrumb {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .grid,
+  .category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+/* --- Phone adjustments: everything above was sized for larger screens. --- */
 @media (max-width: 600px) {
 
   header {
@@ -371,12 +413,6 @@ nav a.active {
   .logo-icon {
     width: 20px;
     height: 20px;
-  }
-
-  nav a {
-    font-size: 13px;
-    padding: 7px 14px;
-    margin-left: 8px;
   }
 
   .hero {
@@ -436,5 +472,20 @@ nav a.active {
 
   .breadcrumb {
     padding: 0 20px;
+  }
+
+  .lightbox {
+    gap: 16px;
+    padding: 24px 20px;
+  }
+
+  .lightbox-image {
+    max-width: 100%;
+    max-height: 68vh;
+  }
+
+  .lightbox-close {
+    top: 16px;
+    right: 20px;
   }
 }
