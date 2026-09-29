@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
 /* This is CSS: it controls how things LOOK. HTML controls WHAT exists, CSS controls HOW it appears. */
 /* This file is now shared by every page on the site - edit it once, every page updates. */
 
@@ -5,13 +7,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* This resets every element to have no default spacing, so we control it ourselves */
 }
 
 body {
-  background: #0B0C0E;
+  background-color: #08090B;
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(110, 106, 246, 0.16), transparent 75%),
+    radial-gradient(circle 800px at 90% 20%, rgba(158, 119, 237, 0.05), transparent);
+  background-attachment: fixed;
   color: #EDEDED;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
 }
 
 body.lightbox-open {
@@ -19,22 +27,34 @@ body.lightbox-open {
 }
 
 header {
-  padding: 32px 48px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 20px 48px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #1E1F22;
+  background: rgba(8, 9, 11, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  transition: all 0.25s ease;
 }
 
 .logo {
   color: #EDEDED;
   text-decoration: none;
   font-size: 20px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
   display: flex;
   align-items: center;
   gap: 10px;
+  transition: opacity 0.2s ease;
+}
+
+.logo:hover {
+  opacity: 0.9;
 }
 
 .logo-icon {
@@ -44,68 +64,95 @@ header {
 }
 
 .logo span {
-  color: #6E6AF6;
-  /* A single accent color used sparingly, on purpose */
+  color: #7B77FF;
+  text-shadow: 0 0 20px rgba(123, 119, 255, 0.45);
 }
 
 nav a {
-  color: #D5D5D5;
+  color: #C5C5C8;
   text-decoration: none;
-  margin-left: 12px;
-  font-size: 14px;
-  padding: 9px 18px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: background 0.2s ease, color 0.2s ease;
+  margin-left: 10px;
+  font-size: 13.5px;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 nav a:hover {
-  background: rgba(110, 106, 246, 0.18);
-  color: #EDEDED;
+  background: rgba(123, 119, 255, 0.16);
+  border-color: rgba(123, 119, 255, 0.35);
+  color: #FFFFFF;
+  box-shadow: 0 0 16px rgba(123, 119, 255, 0.2);
+  transform: translateY(-1px);
 }
 
 nav a.active {
-  color: #EDEDED;
-  background: rgba(110, 106, 246, 0.28);
-  border-color: rgba(110, 106, 246, 0.4);
-  /* Highlights whichever page you're currently on */
+  color: #FFFFFF;
+  background: rgba(123, 119, 255, 0.25);
+  border-color: rgba(123, 119, 255, 0.45);
+  box-shadow: 0 0 18px rgba(123, 119, 255, 0.25);
 }
 
 .hero {
-  padding: 96px 48px 64px;
-  max-width: 640px;
+  padding: 84px 48px 56px;
+  max-width: 680px;
+  position: relative;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 13px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  color: #A5A1FF;
+  background: rgba(123, 119, 255, 0.1);
+  border: 1px solid rgba(123, 119, 255, 0.25);
+  border-radius: 9999px;
+  margin-bottom: 20px;
 }
 
 .hero h1 {
-  font-size: 48px;
-  line-height: 1.15;
-  font-weight: 700;
+  font-size: 50px;
+  line-height: 1.12;
+  font-weight: 800;
+  letter-spacing: -1.2px;
   margin-bottom: 16px;
+  color: #FFFFFF;
 }
 
 .hero p {
-  color: #A0A0A0;
+  color: #B5B5BE;
   font-size: 17px;
-  line-height: 1.6;
+  line-height: 1.65;
+  font-weight: 400;
 }
 
 .search-bar {
-  padding: 0 48px 32px;
+  padding: 0 48px 36px;
 }
 
 .search-bar input {
   width: 100%;
   max-width: 480px;
-  background: #16171A;
-  border: 1px solid #2A2B2E;
-  border-radius: 8px;
-  padding: 12px 16px;
-  font-size: 15px;
+  background: rgba(22, 23, 26, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 13px 18px;
+  font-size: 14.5px;
   color: #EDEDED;
   font-family: inherit;
   outline: none;
-  transition: border-color 0.15s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
 }
 
 .search-bar input::placeholder {
@@ -113,7 +160,9 @@ nav a.active {
 }
 
 .search-bar input:focus {
-  border-color: #6E6AF6;
+  border-color: #7B77FF;
+  box-shadow: 0 0 0 3px rgba(123, 119, 255, 0.25);
+  background: rgba(25, 26, 30, 0.9);
 }
 
 .no-results {
@@ -124,25 +173,29 @@ nav a.active {
 }
 
 .page-heading {
-  padding: 64px 48px 32px;
+  padding: 56px 48px 28px;
 }
 
 .page-heading h1 {
-  font-size: 32px;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
   margin-bottom: 8px;
+  color: #FFFFFF;
 }
 
 .page-heading p {
-  color: #A0A0A0;
+  color: #B5B5BE;
   font-size: 15px;
 }
 
 .category-label {
   padding: 0 48px;
   font-size: 13px;
-  color: #6E6AF6;
+  color: #7B77FF;
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-weight: 600;
   margin-bottom: 16px;
   margin-top: 40px;
 }
@@ -159,18 +212,26 @@ nav a.active {
 .category-tile {
   position: relative;
   aspect-ratio: 4 / 3;
-  border-radius: 12px;
+  border-radius: 14px;
   overflow: hidden;
   text-decoration: none;
   display: block;
   cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.category-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6), 0 0 24px rgba(123, 119, 255, 0.15);
+  border-color: rgba(123, 119, 255, 0.4);
 }
 
 .category-tile img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease;
 }
 
 .category-tile:hover img {
@@ -181,8 +242,7 @@ nav a.active {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 55%, rgba(0,0,0,0.35) 100%);
-  /* Darkens the whole tile evenly so white text is readable no matter what the cover image looks like */
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 55%, rgba(0,0,0,0.35) 100%);
 }
 
 .category-tile-text {
@@ -196,6 +256,7 @@ nav a.active {
 
 .category-tile-text h3 {
   font-size: 22px;
+  font-weight: 700;
   color: #EDEDED;
   margin-bottom: 4px;
 }
@@ -214,6 +275,7 @@ nav a.active {
   color: #A0A0A0;
   text-decoration: none;
   font-size: 14px;
+  transition: color 0.2s ease;
 }
 
 .breadcrumb a:hover {
@@ -225,15 +287,23 @@ nav a.active {
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 20px;
   padding: 0 48px 80px;
-  /* auto-fill + minmax means the grid rearranges itself on any screen size */
 }
 
 .card {
   aspect-ratio: 9 / 16;
-  border-radius: 10px;
+  border-radius: 12px;
   position: relative;
   overflow: hidden;
-  /* overflow: hidden makes sure the image respects the rounded corners instead of poking out square */
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: #141518;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6), 0 0 24px rgba(123, 119, 255, 0.12);
+  border-color: rgba(123, 119, 255, 0.35);
 }
 
 .card img {
@@ -241,13 +311,11 @@ nav a.active {
   height: 100%;
   object-fit: cover;
   display: block;
-  /* object-fit: cover crops the image to fill the card without stretching or squishing it */
-  transition: transform 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card:hover img {
   transform: scale(1.04);
-  /* A tiny zoom on hover - a small, deliberate touch instead of a flashy effect */
 }
 
 .card .label {
@@ -255,20 +323,17 @@ nav a.active {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 16px;
-  font-size: 13px;
+  padding: 18px 16px 14px;
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
   color: #EDEDED;
-  background: linear-gradient(to top, rgba(0,0,0,0.65), transparent);
-  /* This gradient overlay is what makes white text readable over ANY image, dark or light */
-}
-
-.card {
-  cursor: pointer;
-  /* Signals to the visitor that clicking this does something */
+  background: linear-gradient(to top, rgba(8, 9, 11, 0.85) 0%, rgba(8, 9, 11, 0.4) 60%, transparent 100%);
+  backdrop-filter: blur(2px);
 }
 
 .site-footer {
-  border-top: 1px solid #1E1F22;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
   color: #6B6B6B;
   font-size: 13px;
   padding: 32px 20px;
@@ -277,6 +342,11 @@ nav a.active {
 
 .site-footer a {
   color: inherit;
+  transition: color 0.2s ease;
+}
+
+.site-footer a:hover {
+  color: #EDEDED;
 }
 
 .privacy-heading {
@@ -308,47 +378,64 @@ nav a.active {
 .card:focus-visible,
 .lightbox-close:focus-visible,
 .lightbox-download:focus-visible {
-  outline: 3px solid #A9A6FF;
+  outline: 2px solid #7B77FF;
   outline-offset: 3px;
 }
 
-/* --- Lightbox: the full-screen viewer that appears when you click a card --- */
-
 .lightbox {
-  display: none;
-  /* Hidden by default. JavaScript adds the "open" class to reveal it. */
   position: fixed;
   inset: 0;
-  /* inset: 0 is shorthand for top/right/bottom/left: 0 - covers the whole screen */
-  background: rgba(5, 5, 8, 0.92);
-  z-index: 100;
-  flex-direction: column;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  padding: 40px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
 }
 
 .lightbox.open {
-  display: flex;
-  /* This is the only rule that matters for showing/hiding - JS just toggles this class */
+  opacity: 1;
+  visibility: visible;
 }
 
-.lightbox-image {
+.lightbox-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 90vh;
+  gap: 16px;
+}
+
+.lightbox-content img {
+  max-height: 72vh;
   max-width: 90vw;
-  max-height: 75vh;
-  object-fit: contain;
-  border-radius: 8px;
+  border-radius: 14px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(123, 119, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: block;
 }
 
 .lightbox-download {
-  background: #6E6AF6;
-  color: #EDEDED;
+  display: inline-block;
+  background: #7B77FF;
+  color: #FFFFFF;
   text-decoration: none;
-  padding: 12px 28px;
-  border-radius: 6px;
+  padding: 11px 26px;
+  border-radius: 9999px;
   font-size: 14px;
   font-weight: 600;
+  box-shadow: 0 4px 16px rgba(123, 119, 255, 0.35);
+  transition: all 0.2s ease;
+}
+
+.lightbox-download:hover {
+  background: #6863FF;
+  box-shadow: 0 6px 22px rgba(123, 119, 255, 0.5);
+  transform: translateY(-1px);
 }
 
 .lightbox-close {
@@ -361,6 +448,11 @@ nav a.active {
   font-size: 32px;
   cursor: pointer;
   line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.lightbox-close:hover {
+  color: #FFFFFF;
 }
 
 .lightbox-info {
@@ -369,6 +461,7 @@ nav a.active {
 
 .lightbox-info h3 {
   font-size: 18px;
+  font-weight: 600;
   color: #EDEDED;
   margin-bottom: 4px;
 }
@@ -376,15 +469,11 @@ nav a.active {
 .lightbox-info .meta {
   font-size: 13px;
   color: #A0A0A0;
-  /* Shows "1152 x 896 · 461 KB" style details, pulled from each image's real file data */
 }
 
-/* --- Tablet adjustments: keep galleries comfortably two-column between
-   phone and desktop sizes instead of briefly dropping to one huge card. --- */
 @media (min-width: 601px) and (max-width: 800px) {
-
   header {
-    padding: 24px 32px;
+    padding: 20px 32px;
   }
 
   .hero {
@@ -422,14 +511,12 @@ nav a.active {
   }
 }
 
-/* --- Phone adjustments: everything above was sized for larger screens. --- */
 @media (max-width: 600px) {
-
   header {
     flex-direction: column;
     align-items: flex-start;
     gap: 14px;
-    padding: 18px 20px;
+    padding: 16px 20px;
   }
 
   nav {
@@ -442,7 +529,7 @@ nav a.active {
     flex: 1;
     text-align: center;
     margin-left: 0;
-    padding: 9px 8px;
+    padding: 8px 8px;
     font-size: 13px;
   }
 
@@ -451,17 +538,16 @@ nav a.active {
   }
 
   .logo-icon {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
   }
 
   .hero {
-    padding: 48px 20px 40px;
+    padding: 48px 20px 36px;
   }
 
   .hero h1 {
     font-size: 32px;
-    /* Was 48px - too large for a narrow screen, wraps awkwardly and crowds the caption below it */
   }
 
   .hero p {
@@ -469,59 +555,49 @@ nav a.active {
   }
 
   .page-heading {
-    padding: 40px 20px 24px;
+    padding: 36px 20px 24px;
   }
 
   .page-heading h1 {
     font-size: 26px;
   }
 
+  .category-label,
+  .breadcrumb {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   .search-bar {
     padding: 0 20px 24px;
   }
 
-  .search-bar input {
-    max-width: 100%;
-  }
-
   .no-results {
-    padding: 0 20px 40px;
+    padding: 0 20px 36px;
   }
 
-  .grid, .category-grid {
-    padding: 0 20px 48px;
-    gap: 14px;
+  .grid,
+  .category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding: 0 20px 60px;
   }
 
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    /* Overrides the desktop auto-fill rule, which was collapsing to 1 column
-       on narrow screens since nothing fit its 260px minimum - that's what
-       caused the "one wallpaper per screen, scroll like reels" feel. */
-    gap: 10px;
+  .category-tile-text {
+    padding: 16px;
+  }
+
+  .category-tile-text h3 {
+    font-size: 17px;
   }
 
   .card .label {
-    font-size: 12px;
-    padding: 10px;
+    padding: 12px 10px;
+    font-size: 11px;
   }
 
-  .category-label {
-    padding: 0 20px;
-  }
-
-  .breadcrumb {
-    padding: 0 20px;
-  }
-
-  .lightbox {
-    gap: 16px;
-    padding: 24px 20px;
-  }
-
-  .lightbox-image {
-    max-width: 100%;
-    max-height: 68vh;
+  .lightbox-content img {
+    max-height: 60vh;
   }
 
   .lightbox-close {
