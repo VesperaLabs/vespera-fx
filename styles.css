@@ -27,6 +27,8 @@ header {
 }
 
 .logo {
+  color: #EDEDED;
+  text-decoration: none;
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -265,6 +267,44 @@ nav a.active {
   /* Signals to the visitor that clicking this does something */
 }
 
+.site-footer {
+  border-top: 1px solid #1E1F22;
+  color: #6B6B6B;
+  font-size: 13px;
+  padding: 32px 20px;
+  text-align: center;
+}
+
+.site-footer a {
+  color: inherit;
+}
+
+.privacy-heading {
+  max-width: 720px;
+}
+
+.privacy-content {
+  color: #C5C5C5;
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 720px;
+  padding: 0 48px 80px;
+}
+
+.privacy-content h2 {
+  color: #EDEDED;
+  font-size: 18px;
+  margin: 32px 0 12px;
+}
+
+.privacy-content p {
+  margin-bottom: 16px;
+}
+
+.privacy-content .privacy-intro {
+  margin-bottom: 24px;
+}
+
 .card:focus-visible,
 .lightbox-close:focus-visible,
 .lightbox-download:focus-visible {
@@ -487,5 +527,9 @@ nav a.active {
   .lightbox-close {
     top: 16px;
     right: 20px;
+  }
+
+  .privacy-content {
+    padding: 0 20px 48px;
   }
 }
