@@ -20,7 +20,7 @@
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=12">
+  <link rel="stylesheet" href="styles.css?v=13">
 </head>
 
 <body>
@@ -471,15 +471,57 @@
 
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxName" aria-describedby="lightboxMeta" aria-hidden="true">
     <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close wallpaper viewer">&times;</button>
-    <img class="lightbox-image" id="lightboxImage" src="" alt="">
+    
+    <div class="lightbox-preview-wrap">
+      <img class="lightbox-image" id="lightboxImage" src="" alt="">
+      
+      <!-- Interactive phone lock screen preview overlay -->
+      <div class="lockscreen-overlay" id="lockscreenOverlay" aria-hidden="true">
+        <div class="lockscreen-top">
+          <div class="lockscreen-lock">
+            <svg width="14" height="18" viewBox="0 0 14 18" fill="none">
+              <path d="M3.5 8V5C3.5 3.067 5.067 1.5 7 1.5C8.933 1.5 10.5 3.067 10.5 5V8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <rect x="1" y="8" width="12" height="9" rx="3" stroke="currentColor" stroke-width="1.8"/>
+            </svg>
+          </div>
+          <div class="lockscreen-date" id="lockscreenDate">Wednesday, Sep 30</div>
+          <div class="lockscreen-time" id="lockscreenTime">09:41</div>
+        </div>
+        <div class="lockscreen-bottom">
+          <div class="lockscreen-btn" aria-label="Flashlight">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 6c0 2-2 4-2 7v6a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-6c0-3-2-5-2-7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z"/>
+              <line x1="6" y1="6" x2="18" y2="6"/>
+            </svg>
+          </div>
+          <div class="lockscreen-btn" aria-label="Camera">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+              <circle cx="12" cy="13" r="4"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="lightbox-info">
       <h3 id="lightboxName"></h3>
       <div class="meta" id="lightboxMeta"></div>
     </div>
-    <a class="lightbox-download" id="lightboxDownload" href="" download>Download Wallpaper</a>
+
+    <div class="lightbox-actions">
+      <button class="lightbox-preview-btn" id="lockscreenToggle" type="button" aria-pressed="false">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="5" y="2" width="14" height="20" rx="3"/>
+          <line x1="12" y1="18" x2="12.01" y2="18"/>
+        </svg>
+        <span>Preview Lock Screen</span>
+      </button>
+      <a class="lightbox-download" id="lightboxDownload" href="" download>Download Wallpaper</a>
+    </div>
   </div>
 
-  <script src="script.js?v=8"></script>
+  <script src="script.js?v=9"></script>
   <footer class="site-footer">
     &copy; 2026 Vespera FX &middot; <a href="privacy.html">Privacy Policy</a>
   </footer>

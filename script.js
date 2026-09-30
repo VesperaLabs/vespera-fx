@@ -27,6 +27,38 @@ document.addEventListener('DOMContentLoaded', () => {
     card.setAttribute('aria-label', `Open ${label} wallpaper`);
   });
 
+  // Lockscreen Preview Elements
+  const lockscreenToggle = document.getElementById('lockscreenToggle');
+  const lockscreenOverlay = document.getElementById('lockscreenOverlay');
+  const lockscreenTime = document.getElementById('lockscreenTime');
+  const lockscreenDate = document.getElementById('lockscreenDate');
+
+  function updateLockscreenClock() {
+    if (!lockscreenTime || !lockscreenDate) return;
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    lockscreenTime.textContent = `${hours}:${minutes}`;
+
+    const options = { weekday: 'long', month: 'short', day: 'numeric' };
+    lockscreenDate.textContent = now.toLocaleDateString('en-US', options);
+  }
+
+  if (lockscreenToggle && lockscreenOverlay) {
+    updateLockscreenClock();
+
+    lockscreenToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isActive = lockscreenOverlay.classList.toggle('active');
+      lockscreenToggle.classList.toggle('active', isActive);
+      lockscreenToggle.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      const span = lockscreenToggle.querySelector('span');
+      if (span) {
+        span.textContent = isActive ? 'Hide Lock Screen' : 'Preview Lock Screen';
+      }
+    });
+  }
+
   function openLightbox(card) {
     // Inside THIS card, find its image and its label text.
     const img = card.querySelector('img');
@@ -35,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // The card shows a small thumbnail for fast loading, but the lightbox
     // needs the full-resolution original - that's stored in data-full.
     lightboxImage.src = img.dataset.full || img.src;
+    updateLockscreenClock();
     lightboxImage.alt = img.alt;
 
     // Read the resolution and file size we stored on the card itself
@@ -62,6 +95,16 @@ document.addEventListener('DOMContentLoaded', () => {
     lightbox.classList.remove('open');
     lightbox.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('lightbox-open');
+
+    if (lockscreenOverlay) {
+      lockscreenOverlay.classList.remove('active');
+    }
+    if (lockscreenToggle) {
+      lockscreenToggle.classList.remove('active');
+      lockscreenToggle.setAttribute('aria-pressed', 'false');
+      const span = lockscreenToggle.querySelector('span');
+      if (span) span.textContent = 'Preview Lock Screen';
+    }
 
     if (lastFocusedCard && document.body.contains(lastFocusedCard)) {
       lastFocusedCard.focus();
