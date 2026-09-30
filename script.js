@@ -160,14 +160,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // --- Unified Category Filter Chips & Search ---
+  // --- Enhanced Search Bar & Filter Chips ---
+  const searchBox = document.querySelector('.search-box');
   const searchInput = document.querySelector('.search-bar input');
+  const searchClearBtn = document.getElementById('searchClear');
+  const searchKbd = document.getElementById('searchKbd');
   const noResults = document.querySelector('.no-results');
   const filterChips = document.querySelectorAll('.chip');
   let activeCategory = 'all';
 
+  function updateSearchState() {
+    if (!searchBox || !searchInput) return;
+    const hasText = searchInput.value.trim().length > 0;
+    searchBox.classList.toggle('has-text', hasText);
+  }
+
   function applyFilters() {
     const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+    updateSearchState();
     let visibleCount = 0;
 
     cards.forEach(card => {
@@ -210,9 +220,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Hook up search input
+  // Hook up search input events
   if (searchInput) {
     searchInput.addEventListener('input', applyFilters);
+
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (searchInput.value.length > 0) {
+          e.preventDefault();
+          e.stopPropagation();
+          searchInput.value = '';
+          applyFilters();
+        } else {
+          searchInput.blur();
+        }
+      }
+    });
   }
+
+  // Clear button click
+  if (searchClearBtn) {
+    searchClearBtn.addEventListener('click', () => {
+      if (searchInput) {
+        searchInput.value = '';
+        applyFilters();
+        searchInput.focus();
+      }
+    });
+  }
+
+  // Keyboard shortcut badge click
+  if (searchKbd) {
+    searchKbd.addEventListener('click', () => {
+      if (searchInput) {
+        searchInput.focus();
+      }
+    });
+  }
+
+  // Global '/' keyboard shortcut to focus search
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '/' && !lightbox?.classList.contains('open')) {
+      const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
+      const isEditable = document.activeElement ? document.activeElement.isContentEditable : false;
+      if (activeTag !== 'input' && activeTag !== 'textarea' && !isEditable) {
+        e.preventDefault();
+        if (searchInput) {
+          searchInput.focus();
+          searchInput.select();
+          searchInput.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }
+    }
+  });
 
 });
