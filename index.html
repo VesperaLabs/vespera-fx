@@ -20,7 +20,7 @@
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=11">
+  <link rel="stylesheet" href="styles.css?v=12">
 </head>
 
 <body>
@@ -44,415 +44,425 @@
     <input type="search" placeholder="Search all wallpapers..." aria-label="Search wallpapers">
   </div>
 
+  <div class="filter-chips" role="tablist" aria-label="Filter wallpapers by category">
+    <button class="chip active" data-filter="all" role="tab" aria-selected="true">All <span>101</span></button>
+    <button class="chip" data-filter="amoled" role="tab" aria-selected="false">AMOLED <span>22</span></button>
+    <button class="chip" data-filter="nightsky" role="tab" aria-selected="false">Night Sky <span>16</span></button>
+    <button class="chip" data-filter="abstract" role="tab" aria-selected="false">Abstract <span>16</span></button>
+    <button class="chip" data-filter="heroic" role="tab" aria-selected="false">Heroic <span>15</span></button>
+    <button class="chip" data-filter="architecture" role="tab" aria-selected="false">Architecture <span>16</span></button>
+    <button class="chip" data-filter="landscape" role="tab" aria-selected="false">Landscape <span>16</span></button>
+  </div>
+
   <p class="no-results">No wallpapers match your search.</p>
 
   <!-- Every wallpaper, newest first. This is a real "Latest" feed now, not a fixed 3. -->
   <section class="grid">
 
-        <div class="card" data-resolution="941 × 1672" data-size="314 KB">
+        <div class="card" data-category="amoled" data-resolution="941 × 1672" data-size="314 KB">
       <img src="images/thumbs/amoled-chrome-spire.jpg" data-full="images/amoled-chrome-spire.jpg" alt="Abstract chrome spire sculpture with glossy liquid reflections rising from dark rock on pure black" loading="lazy">
       <div class="label">Chrome Spire</div>
     </div>
-    <div class="card" data-resolution="940 × 1672" data-size="465 KB">
+    <div class="card" data-category="amoled" data-resolution="940 × 1672" data-size="465 KB">
       <img src="images/thumbs/amoled-crimson-spire.jpg" data-full="images/amoled-crimson-spire.jpg" alt="Chrome spire sculpture with glowing crimson red edges and reflections on dark obsidian rock" loading="lazy">
       <div class="label">Crimson Spire</div>
     </div>
-    <div class="card" data-resolution="941 × 1672" data-size="419 KB">
+    <div class="card" data-category="abstract" data-resolution="941 × 1672" data-size="419 KB">
       <img src="images/thumbs/abstract-geometric-monolith.jpg" data-full="images/abstract-geometric-monolith.jpg" alt="Minimalist dark geometric block wrapped in a floating metallic chrome band" loading="lazy">
       <div class="label">Geometric Monolith</div>
     </div>
-    <div class="card" data-resolution="941 × 1672" data-size="425 KB">
+    <div class="card" data-category="abstract" data-resolution="941 × 1672" data-size="425 KB">
       <img src="images/thumbs/abstract-faceted-prism.jpg" data-full="images/abstract-faceted-prism.jpg" alt="Minimal faceted obsidian crystal prism with sharp reflective bevels on black" loading="lazy">
       <div class="label">Faceted Prism</div>
     </div>
-    <div class="card" data-resolution="941 × 1672" data-size="197 KB">
+    <div class="card" data-category="amoled" data-resolution="941 × 1672" data-size="197 KB">
       <img src="images/thumbs/amoled-golden-crescent.jpg" data-full="images/amoled-golden-crescent.jpg" alt="Delicate glowing golden crescent moon suspended in pitch black void" loading="lazy">
       <div class="label">Golden Crescent</div>
     </div>
-    <div class="card" data-resolution="941 × 1672" data-size="368 KB">
+    <div class="card" data-category="amoled" data-resolution="941 × 1672" data-size="368 KB">
       <img src="images/thumbs/amoled-neon-rose.jpg" data-full="images/amoled-neon-rose.jpg" alt="Luminescent violet crystal rose with glowing thorns floating on pure black" loading="lazy">
       <div class="label">Neon Rose</div>
     </div>
-    <div class="card" data-resolution="941 × 1672" data-size="1.1 MB">
+    <div class="card" data-category="nightsky" data-resolution="941 × 1672" data-size="1.1 MB">
       <img src="images/thumbs/nightsky-aurora-fjord.jpg" data-full="images/nightsky-aurora-fjord.jpg" alt="Vibrant green and magenta aurora borealis reflected in a frozen mountain lake" loading="lazy">
       <div class="label">Aurora Fjord</div>
     </div>
-    <div class="card" data-resolution="941 × 1671" data-size="1.3 MB">
+    <div class="card" data-category="nightsky" data-resolution="941 × 1671" data-size="1.3 MB">
       <img src="images/thumbs/nightsky-meteor-ocean.jpg" data-full="images/nightsky-meteor-ocean.jpg" alt="Shooting star meteor shower over dark ocean waves and a setting crescent moon" loading="lazy">
       <div class="label">Meteor Tide</div>
     </div>
-    <div class="card" data-resolution="941 × 1672" data-size="557 KB">
+    <div class="card" data-category="abstract" data-resolution="941 × 1672" data-size="557 KB">
       <img src="images/thumbs/abstract-amber-glass-curves.jpg" data-full="images/abstract-amber-glass-curves.jpg" alt="Translucent curved glass ribbons glowing with warm amber and magenta gradients" loading="lazy">
       <div class="label">Amber Glass Curves</div>
     </div>
-    <div class="card" data-resolution="941 × 1672" data-size="1.5 MB">
+    <div class="card" data-category="amoled" data-resolution="941 × 1672" data-size="1.5 MB">
       <img src="images/thumbs/amoled-gold-topography.jpg" data-full="images/amoled-gold-topography.jpg" alt="Dark textured topographic contour ridges veined with shimmering metallic gold dust" loading="lazy">
       <div class="label">Gold Topography</div>
     </div>
-    <div class="card" data-resolution="941 × 1672" data-size="1.1 MB">
+    <div class="card" data-category="landscape" data-resolution="941 × 1672" data-size="1.1 MB">
       <img src="images/thumbs/landscape-golden-valley.jpg" data-full="images/landscape-golden-valley.jpg" alt="Misty mountain valley with a winding sunlit river at golden hour sunrise" loading="lazy">
       <div class="label">Golden Valley</div>
     </div>
-    <div class="card" data-resolution="941 × 1672" data-size="1.2 MB">
+    <div class="card" data-category="landscape" data-resolution="941 × 1672" data-size="1.2 MB">
       <img src="images/thumbs/landscape-coastal-sunset.jpg" data-full="images/landscape-coastal-sunset.jpg" alt="Dramatic sea stacks and turquoise waves breaking on a sandy shore at sunset" loading="lazy">
       <div class="label">Coastal Sunset</div>
     </div>
-    <div class="card" data-resolution="941 × 1672" data-size="669 KB">
+    <div class="card" data-category="nightsky" data-resolution="941 × 1672" data-size="669 KB">
       <img src="images/thumbs/nightsky-lone-tree-dusk.jpg" data-full="images/nightsky-lone-tree-dusk.jpg" alt="Solitary oak tree silhouette atop a dark hill under dramatic sunset clouds" loading="lazy">
       <div class="label">Tree at Dusk</div>
     </div>
-    <div class="card" data-resolution="941 × 1672" data-size="848 KB">
+    <div class="card" data-category="landscape" data-resolution="941 × 1672" data-size="848 KB">
       <img src="images/thumbs/landscape-winding-mountain-road.jpg" data-full="images/landscape-winding-mountain-road.jpg" alt="Wet asphalt road curving through foggy mountain pass toward distant twilight glow" loading="lazy">
       <div class="label">Mountain Twilight Road</div>
     </div>
-    <div class="card" data-resolution="941 × 1672" data-size="1.1 MB">
+    <div class="card" data-category="architecture" data-resolution="941 × 1672" data-size="1.1 MB">
       <img src="images/thumbs/architecture-modern-curved-villa.jpg" data-full="images/architecture-modern-curved-villa.jpg" alt="Futuristic curved white architectural villa terrace with warm light overlooking dusk sea" loading="lazy">
       <div class="label">Curved Villa Terrace</div>
     </div>
-    <div class="card" data-resolution="941 × 1672" data-size="1.6 MB">
+    <div class="card" data-category="architecture" data-resolution="941 × 1672" data-size="1.6 MB">
       <img src="images/thumbs/architecture-cyberpunk-skyline.jpg" data-full="images/architecture-cyberpunk-skyline.jpg" alt="Wet city street at night reflecting towering skyscrapers and magenta neon lights" loading="lazy">
       <div class="label">Neon Rain Street</div>
     </div>
-    <div class="card" data-resolution="941 × 1672" data-size="867 KB">
+    <div class="card" data-category="heroic" data-resolution="941 × 1672" data-size="867 KB">
       <img src="images/thumbs/hero-red-cape-sunset.jpg" data-full="images/hero-red-cape-sunset.jpg" alt="Armored warrior with flowing red cape standing on rocky cliff overlooking fantasy kingdom at sunset" loading="lazy">
       <div class="label">Red Cape Overlook</div>
     </div>
-    <div class="card" data-resolution="941 × 1672" data-size="1016 KB">
+    <div class="card" data-category="heroic" data-resolution="941 × 1672" data-size="1016 KB">
       <img src="images/thumbs/hero-fiery-horizon.jpg" data-full="images/hero-fiery-horizon.jpg" alt="Armored knight holding a greatsword on a high peak beneath blazing crimson clouds" loading="lazy">
       <div class="label">Fiery Horizon Sentinel</div>
     </div>
-    <div class="card" data-resolution="941 × 1672" data-size="1000 KB">
+    <div class="card" data-category="heroic" data-resolution="941 × 1672" data-size="1000 KB">
       <img src="images/thumbs/hero-storm-sentinel.jpg" data-full="images/hero-storm-sentinel.jpg" alt="Dark armored guardian perched high on a skyscraper ledge during a lightning storm" loading="lazy">
       <div class="label">Storm Sentinel</div>
     </div>
-    <div class="card" data-resolution="941 × 1672" data-size="1.3 MB">
+    <div class="card" data-category="heroic" data-resolution="941 × 1672" data-size="1.3 MB">
       <img src="images/thumbs/hero-temple-ascent.jpg" data-full="images/hero-temple-ascent.jpg" alt="Lone cloaked wanderer climbing lantern-lit stone mountain steps toward a mountain pagoda at sunset" loading="lazy">
       <div class="label">Temple Ascent</div>
     </div>
-    <div class="card" data-resolution="941 × 1672" data-size="1.3 MB">
+    <div class="card" data-category="heroic" data-resolution="941 × 1672" data-size="1.3 MB">
       <img src="images/thumbs/hero-temple-steps.jpg" data-full="images/hero-temple-steps.jpg" alt="Wanderer ascending steep ancient stone temple stairs lined with glowing lanterns and cherry petals" loading="lazy">
       <div class="label">Lantern Steps</div>
     </div>
-    <div class="card" data-resolution="941 × 1672" data-size="1.2 MB">
+    <div class="card" data-category="heroic" data-resolution="941 × 1672" data-size="1.2 MB">
       <img src="images/thumbs/hero-temple-twilight.jpg" data-full="images/hero-temple-twilight.jpg" alt="Cloaked samurai walking up mountain temple stairway under deep twilight skies" loading="lazy">
       <div class="label">Twilight Pagoda Path</div>
     </div>
-    <div class="card" data-resolution="941 × 1672" data-size="1.1 MB">
+    <div class="card" data-category="heroic" data-resolution="941 × 1672" data-size="1.1 MB">
       <img src="images/thumbs/hero-kneeling-knight.jpg" data-full="images/hero-kneeling-knight.jpg" alt="Armored knight kneeling in prayer over radiant glowing sword under dramatic heavenly sunbeams" loading="lazy">
       <div class="label">Kneeling Knight</div>
     </div>
-    <div class="card" data-resolution="1536 × 2752" data-size="3.0 MB">
+    <div class="card" data-category="abstract" data-resolution="1536 × 2752" data-size="3.0 MB">
       <img src="images/thumbs/abstract-iridescent-twist.jpg" data-full="images/abstract-iridescent-twist.jpg" alt="Holographic chrome ribbon twisting smoothly through empty space" loading="lazy">
       <div class="label">Iridescent Twist</div>
     </div>
-    <div class="card" data-resolution="1536 × 2752" data-size="2.0 MB">
+    <div class="card" data-category="amoled" data-resolution="1536 × 2752" data-size="2.0 MB">
       <img src="images/thumbs/amoled-neon-jellyfish.jpg" data-full="images/amoled-neon-jellyfish.jpg" alt="Bioluminescent cyan and magenta jellyfish drifting gracefully in deep dark waters" loading="lazy">
       <div class="label">Neon Jellyfish</div>
     </div>
-    <div class="card" data-resolution="1536 × 2752" data-size="3.7 MB">
+    <div class="card" data-category="nightsky" data-resolution="1536 × 2752" data-size="3.7 MB">
       <img src="images/thumbs/nightsky-milkyway-arch.jpg" data-full="images/nightsky-milkyway-arch.jpg" alt="Milky Way galaxy framed by natural red rock arch above an illuminated desert campsite" loading="lazy">
       <div class="label">Desert Arch Starlight</div>
     </div>
-    <div class="card" data-resolution="1536 × 2752" data-size="3.4 MB">
+    <div class="card" data-category="architecture" data-resolution="1536 × 2752" data-size="3.4 MB">
       <img src="images/thumbs/architecture-illuminated-spiral.jpg" data-full="images/architecture-illuminated-spiral.jpg" alt="Looking up at a modern concrete spiral staircase with warm glowing step lights" loading="lazy">
       <div class="label">Illuminated Spiral</div>
     </div>
-    <div class="card" data-resolution="1536 × 2752" data-size="2.8 MB">
+    <div class="card" data-category="amoled" data-resolution="1536 × 2752" data-size="2.8 MB">
       <img src="images/thumbs/amoled-obsidian-stone.jpg" data-full="images/amoled-obsidian-stone.jpg" alt="Macro texture of rough volcanic obsidian rock catching silver rim light on pure black" loading="lazy">
       <div class="label">Obsidian Texture</div>
     </div>
-    <div class="card" data-resolution="1536 × 2752" data-size="4.1 MB">
+    <div class="card" data-category="nightsky" data-resolution="1536 × 2752" data-size="4.1 MB">
       <img src="images/thumbs/nightsky-cosmic-ribbon.jpg" data-full="images/nightsky-cosmic-ribbon.jpg" alt="Holographic iridescent spiral flowing through a dense cosmic field of stars and nebulae" loading="lazy">
       <div class="label">Cosmic Ribbon</div>
     </div>
-    <div class="card" data-resolution="1536 × 2752" data-size="1.4 MB">
+    <div class="card" data-category="amoled" data-resolution="1536 × 2752" data-size="1.4 MB">
       <img src="images/thumbs/amoled-solar-eclipse-ring.jpg" data-full="images/amoled-solar-eclipse-ring.jpg" alt="Glowing ring of solar fire and burning corona flares centered on pure black background" loading="lazy">
       <div class="label">Solar Corona Ring</div>
     </div>
-    <div class="card" data-resolution="1536 × 2752" data-size="3.0 MB">
+    <div class="card" data-category="architecture" data-resolution="1536 × 2752" data-size="3.0 MB">
       <img src="images/thumbs/architecture-moonlit-temple-pillar.jpg" data-full="images/architecture-moonlit-temple-pillar.jpg" alt="Intricately carved ancient stone temple pillar illuminated by a beam of moonlight through a stone doorway" loading="lazy">
       <div class="label">Moonlit Temple Pillar</div>
     </div>
-    <div class="card" data-resolution="1536 × 2752" data-size="3.8 MB">
+    <div class="card" data-category="abstract" data-resolution="1536 × 2752" data-size="3.8 MB">
       <img src="images/thumbs/abstract-fire-nebula-swirl.jpg" data-full="images/abstract-fire-nebula-swirl.jpg" alt="Swirling fluid marble art with molten amber, magenta, and gold veins against deep space" loading="lazy">
       <div class="label">Fire Nebula Swirl</div>
     </div>
-    <div class="card" data-resolution="1536 × 2752" data-size="3.6 MB">
+    <div class="card" data-category="nightsky" data-resolution="1536 × 2752" data-size="3.6 MB">
       <img src="images/thumbs/nightsky-alpine-milkyway.jpg" data-full="images/nightsky-alpine-milkyway.jpg" alt="Vast vertical Milky Way core rising directly above dark alpine peaks and a solitary valley cabin" loading="lazy">
       <div class="label">Alpine Milky Way</div>
     </div>
-<div class="card" data-resolution="1440 × 2560" data-size="1.9 MB">
+<div class="card" data-category="amoled" data-resolution="1440 × 2560" data-size="1.9 MB">
       <img src="images/thumbs/amoled-circuit-whisper.jpg" data-full="images/amoled-circuit-whisper.jpg" alt="Minimal glowing teal circuit-line pattern with a few lit nodes on pure black" loading="lazy">
       <div class="label">Circuit Whisper</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="1.5 MB">
+    <div class="card" data-category="amoled" data-resolution="1440 × 2560" data-size="1.5 MB">
       <img src="images/thumbs/amoled-falling-spark.jpg" data-full="images/amoled-falling-spark.jpg" alt="Single bright particle with a faint motion-blur trail falling diagonally on pure black" loading="lazy">
       <div class="label">Falling Spark</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="1.8 MB">
+    <div class="card" data-category="amoled" data-resolution="1440 × 2560" data-size="1.8 MB">
       <img src="images/thumbs/amoled-lone-ring.jpg" data-full="images/amoled-lone-ring.jpg" alt="Thin magenta-to-violet gradient ring glowing softly on pure black" loading="lazy">
       <div class="label">Lone Ring</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="2.0 MB">
+    <div class="card" data-category="amoled" data-resolution="1440 × 2560" data-size="2.0 MB">
       <img src="images/thumbs/amoled-fractured-glass.jpg" data-full="images/amoled-fractured-glass.jpg" alt="Sharp jagged crack of electric blue light splitting a black frame" loading="lazy">
       <div class="label">Fractured Glass</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="1.9 MB">
+    <div class="card" data-category="amoled" data-resolution="1440 × 2560" data-size="1.9 MB">
       <img src="images/thumbs/amoled-ember-thread.jpg" data-full="images/amoled-ember-thread.jpg" alt="Thin glowing amber line curving diagonally across pure black like a lit fuse" loading="lazy">
       <div class="label">Ember Thread</div>
     </div>
 
-    <div class="card" data-resolution="1440 × 2560" data-size="111 KB">
+    <div class="card" data-category="abstract" data-resolution="1440 × 2560" data-size="111 KB">
       <img src="images/thumbs/abstract-molten-gold.jpg" data-full="images/abstract-molten-gold.jpg" alt="Molten gold liquid metal frozen mid-drip against pure black" loading="lazy">
       <div class="label">Molten Drip</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="337 KB">
+    <div class="card" data-category="abstract" data-resolution="1440 × 2560" data-size="337 KB">
       <img src="images/thumbs/abstract-fractured-crack.jpg" data-full="images/abstract-fractured-crack.jpg" alt="Fractured obsidian glass with a single crimson crack of light" loading="lazy">
       <div class="label">Fault Glow</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="267 KB">
+    <div class="card" data-category="abstract" data-resolution="1440 × 2560" data-size="267 KB">
       <img src="images/thumbs/abstract-ink-drop.jpg" data-full="images/abstract-ink-drop.jpg" alt="Slow-motion ink drop dispersing in black water, deep blue and violet swirls" loading="lazy">
       <div class="label">Ink Bloom</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="136 KB">
+    <div class="card" data-category="abstract" data-resolution="1440 × 2560" data-size="136 KB">
       <img src="images/thumbs/abstract-wireframe-sphere.jpg" data-full="images/abstract-wireframe-sphere.jpg" alt="Suspended geometric wireframe sphere glowing faint teal" loading="lazy">
       <div class="label">Wire Sphere</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="262 KB">
+    <div class="card" data-category="landscape" data-resolution="1440 × 2560" data-size="262 KB">
       <img src="images/thumbs/landscape-fog-valley.jpg" data-full="images/landscape-fog-valley.jpg" alt="Fog rolling through a pine valley at dawn, cold blue light" loading="lazy">
       <div class="label">Hollow Fog</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="725 KB">
+    <div class="card" data-category="landscape" data-resolution="1440 × 2560" data-size="725 KB">
       <img src="images/thumbs/landscape-lighthouse.jpg" data-full="images/landscape-lighthouse.jpg" alt="Solitary lighthouse on a rocky cliff against a stormy indigo sky" loading="lazy">
       <div class="label">Storm Watch</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="481 KB">
+    <div class="card" data-category="landscape" data-resolution="1440 × 2560" data-size="481 KB">
       <img src="images/thumbs/landscape-desert-dunes.jpg" data-full="images/landscape-desert-dunes.jpg" alt="Desert dunes at blue hour with a single set of footprints" loading="lazy">
       <div class="label">Blue Hour Trail</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="442 KB">
+    <div class="card" data-category="landscape" data-resolution="1440 × 2560" data-size="442 KB">
       <img src="images/thumbs/landscape-frozen-waterfall.jpg" data-full="images/landscape-frozen-waterfall.jpg" alt="Frozen waterfall between dark cliff walls, faint moonlight" loading="lazy">
       <div class="label">Frozen Fall</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="472 KB">
+    <div class="card" data-category="architecture" data-resolution="1440 × 2560" data-size="472 KB">
       <img src="images/thumbs/architecture-brutalist-stairwell.jpg" data-full="images/architecture-brutalist-stairwell.jpg" alt="Brutalist concrete stairwell lit by a single warm light source" loading="lazy">
       <div class="label">Concrete Ascent</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="561 KB">
+    <div class="card" data-category="architecture" data-resolution="1440 × 2560" data-size="561 KB">
       <img src="images/thumbs/architecture-glass-facade.jpg" data-full="images/architecture-glass-facade.jpg" alt="Glass skyscraper facade reflecting a sunset, geometric grid pattern" loading="lazy">
       <div class="label">Mirrored Sky</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="555 KB">
+    <div class="card" data-category="architecture" data-resolution="1440 × 2560" data-size="555 KB">
       <img src="images/thumbs/architecture-cathedral-corridor.jpg" data-full="images/architecture-cathedral-corridor.jpg" alt="Empty cathedral corridor with light shafts through high windows" loading="lazy">
       <div class="label">Sacred Light</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="449 KB">
+    <div class="card" data-category="architecture" data-resolution="1440 × 2560" data-size="449 KB">
       <img src="images/thumbs/architecture-parking-spiral.jpg" data-full="images/architecture-parking-spiral.jpg" alt="Minimalist spiral parking garage ramp, cool fluorescent lighting" loading="lazy">
       <div class="label">Cool Descent</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="522 KB">
+    <div class="card" data-category="nightsky" data-resolution="1440 × 2560" data-size="522 KB">
       <img src="images/thumbs/nightsky-milky-way.jpg" data-full="images/nightsky-milky-way.jpg" alt="Milky Way core over a silhouetted mountain ridge, long exposure star trails" loading="lazy">
       <div class="label">Galactic Ridge</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="246 KB">
+    <div class="card" data-category="nightsky" data-resolution="1440 × 2560" data-size="246 KB">
       <img src="images/thumbs/nightsky-meteor.jpg" data-full="images/nightsky-meteor.jpg" alt="Single bright meteor streaking across a deep purple night sky over calm water" loading="lazy">
       <div class="label">Falling Star</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="169 KB">
+    <div class="card" data-category="nightsky" data-resolution="1440 × 2560" data-size="169 KB">
       <img src="images/thumbs/nightsky-crescent-moon.jpg" data-full="images/nightsky-crescent-moon.jpg" alt="Crescent moon partially eclipsed by drifting storm clouds" loading="lazy">
       <div class="label">Veiled Crescent</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="68 KB">
+    <div class="card" data-category="amoled" data-resolution="1440 × 2560" data-size="68 KB">
       <img src="images/thumbs/amoled-gold-peak.jpg" data-full="images/amoled-gold-peak.jpg" alt="Thin single gold line forming a mountain peak outline on pure black" loading="lazy">
       <div class="label">Golden Ridge</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="71 KB">
+    <div class="card" data-category="amoled" data-resolution="1440 × 2560" data-size="71 KB">
       <img src="images/thumbs/amoled-star-cluster.jpg" data-full="images/amoled-star-cluster.jpg" alt="Small cluster of white pixel-sharp stars scattered on pure black" loading="lazy">
       <div class="label">Pixel Stars</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="44 KB">
+    <div class="card" data-category="amoled" data-resolution="1440 × 2560" data-size="44 KB">
       <img src="images/thumbs/amoled-ember-dot.jpg" data-full="images/amoled-ember-dot.jpg" alt="One glowing red ember dot with faint smoke trail on pure black" loading="lazy">
       <div class="label">Last Ember</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="448 KB">
+    <div class="card" data-category="heroic" data-resolution="1440 × 2560" data-size="448 KB">
       <img src="images/thumbs/hero-gargoyle.jpg" data-full="images/hero-gargoyle.jpg" alt="Cracked stone gargoyle close-up with glowing red eyes at night" loading="lazy">
       <div class="label">Stone Watcher</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="456 KB">
+    <div class="card" data-category="heroic" data-resolution="1440 × 2560" data-size="456 KB">
       <img src="images/thumbs/hero-boots-landing.jpg" data-full="images/hero-boots-landing.jpg" alt="Hero's boots landing hard on a rain-soaked rooftop, splash detail" loading="lazy">
       <div class="label">Hard Landing</div>
     </div>
 
-    <div class="card" data-resolution="1440 × 2560" data-size="72 KB">
+    <div class="card" data-category="heroic" data-resolution="1440 × 2560" data-size="72 KB">
       <img src="images/thumbs/hero-masked-profile.jpg" data-full="images/hero-masked-profile.jpg" alt="Side profile silhouette of a masked hero looking upward, faint glow outlining the mask edge" loading="lazy">
       <div class="label">Masked Profile</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="635 KB">
+    <div class="card" data-category="heroic" data-resolution="1440 × 2560" data-size="635 KB">
       <img src="images/thumbs/hero-cape-wind.jpg" data-full="images/hero-cape-wind.jpg" alt="Extreme close-up of a flowing cape fabric caught mid-motion against a dark stormy sky" loading="lazy">
       <div class="label">Cape in the Wind</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="179 KB">
+    <div class="card" data-category="heroic" data-resolution="1440 × 2560" data-size="179 KB">
       <img src="images/thumbs/hero-shattered-emblem.jpg" data-full="images/hero-shattered-emblem.jpg" alt="Glowing geometric chest emblem cracking apart into light particles on black" loading="lazy">
       <div class="label">Shattered Emblem</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="302 KB">
+    <div class="card" data-category="heroic" data-resolution="1440 × 2560" data-size="302 KB">
       <img src="images/thumbs/hero-lightning-fist.jpg" data-full="images/hero-lightning-fist.jpg" alt="Clenched fist wrapped in crackling white-blue lightning on true black background" loading="lazy">
       <div class="label">Lightning Fist</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="515 KB">
+    <div class="card" data-category="heroic" data-resolution="1440 × 2560" data-size="515 KB">
       <img src="images/thumbs/hero-energy-shield.jpg" data-full="images/hero-energy-shield.jpg" alt="Glowing translucent blue circuit-patterned energy shield held up against pitch black" loading="lazy">
       <div class="label">Energy Shield</div>
     </div>
-    <div class="card" data-resolution="720 × 1280" data-size="46 KB">
+    <div class="card" data-category="heroic" data-resolution="720 × 1280" data-size="46 KB">
       <img src="images/thumbs/hero-caped-silhouette.jpg" data-full="images/hero-caped-silhouette.jpg" alt="Minimal line-art silhouette of a caped hero standing on a rooftop ledge above a city skyline" loading="lazy">
       <div class="label">Caped Silhouette</div>
     </div>
 
-    <div class="card" data-resolution="720 × 1280" data-size="19 KB">
+    <div class="card" data-category="amoled" data-resolution="720 × 1280" data-size="19 KB">
       <img src="images/thumbs/amoled-triangle.jpg" data-full="images/amoled-triangle.jpg" alt="Thin purple neon triangle outline on pure black" loading="lazy">
       <div class="label">Neon Triangle</div>
     </div>
-    <div class="card" data-resolution="720 × 1280" data-size="20 KB">
+    <div class="card" data-category="amoled" data-resolution="720 × 1280" data-size="20 KB">
       <img src="images/thumbs/amoled-stars.jpg" data-full="images/amoled-stars.jpg" alt="Cluster of white pinpoint stars on pure black" loading="lazy">
       <div class="label">Star Cluster</div>
     </div>
-    <div class="card" data-resolution="720 × 1280" data-size="16 KB">
+    <div class="card" data-category="amoled" data-resolution="720 × 1280" data-size="16 KB">
       <img src="images/thumbs/amoled-wave.jpg" data-full="images/amoled-wave.jpg" alt="Thin red neon wave line on pure black" loading="lazy">
       <div class="label">Red Pulse</div>
     </div>
-    <div class="card" data-resolution="720 × 1280" data-size="26 KB">
+    <div class="card" data-category="amoled" data-resolution="720 × 1280" data-size="26 KB">
       <img src="images/thumbs/amoled-peak.jpg" data-full="images/amoled-peak.jpg" alt="Thin gold mountain outline on pure black" loading="lazy">
       <div class="label">Gold Peak</div>
     </div>
-    <div class="card" data-resolution="720 × 1280" data-size="10 KB">
+    <div class="card" data-category="amoled" data-resolution="720 × 1280" data-size="10 KB">
       <img src="images/thumbs/amoled-orbit.jpg" data-full="images/amoled-orbit.jpg" alt="Glowing cyan dot with thin orbit ring on pure black" loading="lazy">
       <div class="label">Orbit</div>
     </div>
-    <div class="card" data-resolution="720 × 1280" data-size="96 KB">
+    <div class="card" data-category="amoled" data-resolution="720 × 1280" data-size="96 KB">
       <img src="images/thumbs/amoled-outline.jpg" data-full="images/amoled-outline.jpg" alt="Thin glowing white geometric line on pure black" loading="lazy">
       <div class="label">Pure Line</div>
     </div>
-    <div class="card" data-resolution="720 × 1280" data-size="0.4 MB">
+    <div class="card" data-category="nightsky" data-resolution="720 × 1280" data-size="0.4 MB">
       <img src="images/thumbs/aurora.jpg" data-full="images/aurora.jpg" alt="Faint green aurora glow across dark sky" loading="lazy">
       <div class="label">Aurora</div>
     </div>
-    <div class="card" data-resolution="720 × 1280" data-size="0.7 MB">
+    <div class="card" data-category="nightsky" data-resolution="720 × 1280" data-size="0.7 MB">
       <img src="images/thumbs/moon-veiled-2.jpg" data-full="images/moon-veiled-2.jpg" alt="Full moon partially behind thin clouds, alternate composition" loading="lazy">
       <div class="label">Cloud Veil</div>
     </div>
-    <div class="card" data-resolution="720 × 1280" data-size="0.7 MB">
+    <div class="card" data-category="nightsky" data-resolution="720 × 1280" data-size="0.7 MB">
       <img src="images/thumbs/moon-veiled-1.jpg" data-full="images/moon-veiled-1.jpg" alt="Full moon partially behind thin clouds" loading="lazy">
       <div class="label">Veiled Moon</div>
     </div>
-    <div class="card" data-resolution="720 × 1280" data-size="0.6 MB">
+    <div class="card" data-category="nightsky" data-resolution="720 × 1280" data-size="0.6 MB">
       <img src="images/thumbs/meteor.jpg" data-full="images/meteor.jpg" alt="Meteor streaking across night sky" loading="lazy">
       <div class="label">Meteor</div>
     </div>
-    <div class="card" data-resolution="720 × 1280" data-size="1.1 MB">
+    <div class="card" data-category="architecture" data-resolution="720 × 1280" data-size="1.1 MB">
       <img src="images/thumbs/skyscraper.jpg" data-full="images/skyscraper.jpg" alt="Single skyscraper window grid pattern" loading="lazy">
       <div class="label">Grid</div>
     </div>
-    <div class="card" data-resolution="720 × 1280" data-size="0.7 MB">
+    <div class="card" data-category="architecture" data-resolution="720 × 1280" data-size="0.7 MB">
       <img src="images/thumbs/stairwell.jpg" data-full="images/stairwell.jpg" alt="Curved concrete stairwell from below" loading="lazy">
       <div class="label">Stairwell</div>
     </div>
-    <div class="card" data-resolution="720 × 1280" data-size="0.7 MB">
+    <div class="card" data-category="architecture" data-resolution="720 × 1280" data-size="0.7 MB">
       <img src="images/thumbs/bridge-cable.jpg" data-full="images/bridge-cable.jpg" alt="Single suspension bridge cable line at night" loading="lazy">
       <div class="label">Cable Line</div>
     </div>
-    <div class="card" data-resolution="720 × 1280" data-size="0.7 MB">
+    <div class="card" data-category="abstract" data-resolution="720 × 1280" data-size="0.7 MB">
       <img src="images/thumbs/liquid-droplet.jpg" data-full="images/liquid-droplet.jpg" alt="Liquid metal droplet mid-splash" loading="lazy">
       <div class="label">Mercury Drop</div>
     </div>
-    <div class="card" data-resolution="720 × 1280" data-size="0.4 MB">
+    <div class="card" data-category="abstract" data-resolution="720 × 1280" data-size="0.4 MB">
       <img src="images/thumbs/smoke-wisp.jpg" data-full="images/smoke-wisp.jpg" alt="Single smoke wisp curling upward" loading="lazy">
       <div class="label">Smoke Wisp</div>
     </div>
-    <div class="card" data-resolution="720 × 1280" data-size="0.3 MB">
+    <div class="card" data-category="landscape" data-resolution="720 × 1280" data-size="0.3 MB">
       <img src="images/thumbs/lake-reflection.jpg" data-full="images/lake-reflection.jpg" alt="Still lake with single moon reflection" loading="lazy">
       <div class="label">Still Water</div>
     </div>
-    <div class="card" data-resolution="720 × 1280" data-size="0.4 MB">
+    <div class="card" data-category="landscape" data-resolution="720 × 1280" data-size="0.4 MB">
       <img src="images/thumbs/lighthouse.jpg" data-full="images/lighthouse.jpg" alt="Lone lighthouse silhouette on a cliff at night" loading="lazy">
       <div class="label">Lighthouse</div>
     </div>
-    <div class="card" data-resolution="1536 × 2752" data-size="5.0 MB">
+    <div class="card" data-category="abstract" data-resolution="1536 × 2752" data-size="5.0 MB">
       <img src="images/thumbs/ribbon-light.jpg" data-full="images/ribbon-light.jpg" alt="Curved ribbon of crimson light on black" loading="lazy">
       <div class="label">Crimson Ribbon</div>
     </div>
-    <div class="card" data-resolution="1536 × 2752" data-size="6.6 MB">
+    <div class="card" data-category="abstract" data-resolution="1536 × 2752" data-size="6.6 MB">
       <img src="images/thumbs/marble-vein.jpg" data-full="images/marble-vein.jpg" alt="Cracked surface with glowing cyan vein" loading="lazy">
       <div class="label">Fault Line</div>
     </div>
-    <div class="card" data-resolution="1536 × 2752" data-size="5.3 MB">
+    <div class="card" data-category="abstract" data-resolution="1536 × 2752" data-size="5.3 MB">
       <img src="images/thumbs/geometric-prism.jpg" data-full="images/geometric-prism.jpg" alt="Glass prism refracting green and white light" loading="lazy">
       <div class="label">Refraction</div>
     </div>
-    <div class="card" data-resolution="1008 × 1792" data-size="2.1 MB">
+    <div class="card" data-category="landscape" data-resolution="1008 × 1792" data-size="2.1 MB">
       <img src="images/thumbs/frozen-lake.jpg" data-full="images/frozen-lake.jpg" alt="Frozen lake with cracked ice texture" loading="lazy">
       <div class="label">Fracture</div>
     </div>
-    <div class="card" data-resolution="1008 × 1792" data-size="1.1 MB">
+    <div class="card" data-category="landscape" data-resolution="1008 × 1792" data-size="1.1 MB">
       <img src="images/thumbs/pine-forest.jpg" data-full="images/pine-forest.jpg" alt="Foggy pine forest silhouette" loading="lazy">
       <div class="label">Fog Line</div>
     </div>
-    <div class="card" data-resolution="504 × 896" data-size="0.4 MB">
+    <div class="card" data-category="landscape" data-resolution="504 × 896" data-size="0.4 MB">
       <img src="images/thumbs/sand-dune.jpg" data-full="images/sand-dune.jpg" alt="Single sand dune lit at night" loading="lazy">
       <div class="label">Dune</div>
     </div>
-    <div class="card" data-resolution="768 × 1376" data-size="1.0 MB">
+    <div class="card" data-category="nightsky" data-resolution="768 × 1376" data-size="1.0 MB">
       <img src="images/thumbs/crescent-moon.jpg" data-full="images/crescent-moon.jpg" alt="Crescent moon with soft glow" loading="lazy">
       <div class="label">Crescent</div>
     </div>
-    <div class="card" data-resolution="768 × 1376" data-size="1.0 MB">
+    <div class="card" data-category="nightsky" data-resolution="768 × 1376" data-size="1.0 MB">
       <img src="images/thumbs/star-field.jpg" data-full="images/star-field.jpg" alt="Single bright star in a dark star field" loading="lazy">
       <div class="label">North Star</div>
     </div>
-    <div class="card" data-resolution="768 × 1376" data-size="1.3 MB">
+    <div class="card" data-category="nightsky" data-resolution="768 × 1376" data-size="1.3 MB">
       <img src="images/thumbs/cloud-layer.jpg" data-full="images/cloud-layer.jpg" alt="Thin cloud layer over moonlight" loading="lazy">
       <div class="label">Veil</div>
     </div>
-    <div class="card" data-resolution="768 × 1376" data-size="1.2 MB">
+    <div class="card" data-category="architecture" data-resolution="768 × 1376" data-size="1.2 MB">
       <img src="images/thumbs/arched-doorway.jpg" data-full="images/arched-doorway.jpg" alt="Arched doorway with warm light, photographic style" loading="lazy">
       <div class="label">Amber Doorway</div>
     </div>
-    <div class="card" data-resolution="768 × 1376" data-size="1.2 MB">
+    <div class="card" data-category="architecture" data-resolution="768 × 1376" data-size="1.2 MB">
       <img src="images/thumbs/arched-doorway-flat.jpg" data-full="images/arched-doorway-flat.jpg" alt="Arched doorway, flat graphic style" loading="lazy">
       <div class="label">Terracotta Arch</div>
     </div>
-    <div class="card" data-resolution="768 × 1376" data-size="1.2 MB">
+    <div class="card" data-category="architecture" data-resolution="768 × 1376" data-size="1.2 MB">
       <img src="images/thumbs/hallway.jpg" data-full="images/hallway.jpg" alt="Empty modern hallway with one light source" loading="lazy">
       <div class="label">Threshold</div>
     </div>
-    <div class="card" data-resolution="768 × 1376" data-size="1.2 MB">
+    <div class="card" data-category="architecture" data-resolution="768 × 1376" data-size="1.2 MB">
       <img src="images/thumbs/water-tower.jpg" data-full="images/water-tower.jpg" alt="Rooftop water tower silhouette against dusk sky" loading="lazy">
       <div class="label">Water Tower</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="494 KB">
+    <div class="card" data-category="architecture" data-resolution="1440 × 2560" data-size="494 KB">
       <img src="images/thumbs/spiral-staircase.jpg" data-full="images/spiral-staircase.jpg" alt="Spiral staircase viewed from directly above, looking down into the center" loading="lazy">
       <div class="label">Descent</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="147 KB">
+    <div class="card" data-category="abstract" data-resolution="1440 × 2560" data-size="147 KB">
       <img src="images/thumbs/glass-orb.jpg" data-full="images/glass-orb.jpg" alt="Floating translucent glass orb with warm amber inner glow" loading="lazy">
       <div class="label">Ember Sphere</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="111 KB">
+    <div class="card" data-category="landscape" data-resolution="1440 × 2560" data-size="111 KB">
       <img src="images/thumbs/city-skyline.jpg" data-full="images/city-skyline.jpg" alt="Distant city skyline silhouette at sunset, warm amber sky" loading="lazy">
       <div class="label">Amber Line</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="310 KB">
+    <div class="card" data-category="landscape" data-resolution="1440 × 2560" data-size="310 KB">
       <img src="images/thumbs/ocean-horizon.jpg" data-full="images/ocean-horizon.jpg" alt="Calm ocean horizon at night with a moon reflected on the water" loading="lazy">
       <div class="label">Silent Tide</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="272 KB">
+    <div class="card" data-category="landscape" data-resolution="1440 × 2560" data-size="272 KB">
       <img src="images/thumbs/mountain.jpg" data-full="images/mountain.jpg" alt="Mountain range silhouette with a glowing amber edge against a night sky" loading="lazy">
       <div class="label">Low Tide</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="439 KB">
+    <div class="card" data-category="landscape" data-resolution="1440 × 2560" data-size="439 KB">
       <img src="images/thumbs/lone-tree.jpg" data-full="images/lone-tree.jpg" alt="Lone bare tree silhouette standing under a violet night sky" loading="lazy">
       <div class="label">Violet Hour</div>
     </div>
-    <div class="card" data-resolution="1440 × 2560" data-size="87 KB">
+    <div class="card" data-category="abstract" data-resolution="1440 × 2560" data-size="87 KB">
       <img src="images/thumbs/abstract-shape.jpg" data-full="images/abstract-shape.jpg" alt="Abstract violet organic shape floating on pure black, soft glow" loading="lazy">
       <div class="label">Obsidian Drift</div>
     </div>
@@ -469,7 +479,7 @@
     <a class="lightbox-download" id="lightboxDownload" href="" download>Download Wallpaper</a>
   </div>
 
-  <script src="script.js?v=7"></script>
+  <script src="script.js?v=8"></script>
   <footer class="site-footer">
     &copy; 2026 Vespera FX &middot; <a href="privacy.html">Privacy Policy</a>
   </footer>

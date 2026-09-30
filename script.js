@@ -117,31 +117,59 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // --- Search / filter ---
-  // Works on any page that has a .search-bar input above a .grid of .card elements.
-  // On the homepage this searches all wallpapers; on a category page it only
-  // searches the cards already in that category, since that's all that's on the page.
+  // --- Unified Category Filter Chips & Search ---
   const searchInput = document.querySelector('.search-bar input');
   const noResults = document.querySelector('.no-results');
+  const filterChips = document.querySelectorAll('.chip');
+  let activeCategory = 'all';
 
-  if (searchInput) {
-    searchInput.addEventListener('input', () => {
-      const query = searchInput.value.trim().toLowerCase();
-      let visibleCount = 0;
+  function applyFilters() {
+    const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+    let visibleCount = 0;
 
-      cards.forEach(card => {
-        const label = card.querySelector('.label').textContent.toLowerCase();
-        const altText = card.querySelector('img').alt.toLowerCase();
-        const isMatch = query === '' || label.includes(query) || altText.includes(query);
-        card.style.display = isMatch ? '' : 'none';
-        if (isMatch) visibleCount++;
-      });
+    cards.forEach(card => {
+      const cardCategory = card.dataset.category || 'all';
+      const label = card.querySelector('.label').textContent.toLowerCase();
+      const altText = card.querySelector('img').alt.toLowerCase();
 
-      // Show a friendly message instead of just an empty page when nothing matches.
-      if (noResults) {
-        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+      const matchesCategory = activeCategory === 'all' || cardCategory === activeCategory;
+      const matchesSearch = query === '' || label.includes(query) || altText.includes(query);
+
+      const isVisible = matchesCategory && matchesSearch;
+      card.style.display = isVisible ? '' : 'none';
+
+      if (isVisible) {
+        visibleCount++;
       }
     });
+
+    if (noResults) {
+      noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+      if (visibleCount === 0 && activeCategory !== 'all') {
+        noResults.textContent = 'No wallpapers found in this category matching your search.';
+      } else if (visibleCount === 0) {
+        noResults.textContent = 'No wallpapers match your search.';
+      }
+    }
+  }
+
+  // Hook up category chips
+  filterChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      filterChips.forEach(c => {
+        c.classList.remove('active');
+        c.setAttribute('aria-selected', 'false');
+      });
+      chip.classList.add('active');
+      chip.setAttribute('aria-selected', 'true');
+      activeCategory = chip.dataset.filter || 'all';
+      applyFilters();
+    });
+  });
+
+  // Hook up search input
+  if (searchInput) {
+    searchInput.addEventListener('input', applyFilters);
   }
 
 });
