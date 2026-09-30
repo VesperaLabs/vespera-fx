@@ -70,9 +70,9 @@ This document describes project rules and intent. It does **not** override GitHu
 Current expected structure:
 
 ```text
-index.html                  → Homepage "Latest" - all wallpapers, newest first, has search bar
+index.html                  → Homepage "Latest" - 101 wallpapers, newest first, enhanced search bar + category filter chips
 categories.html             → Category picker (grid of category tiles)
-category-abstract.html      → Own search bar, scoped to that category
+category-abstract.html      → Enhanced search bar, scoped to that category
 category-landscape.html     → Same pattern
 category-architecture.html  → Same pattern
 category-nightsky.html      → Same pattern
@@ -80,12 +80,12 @@ category-amoled.html        → Same pattern
 category-heroic.html        → Same pattern
 privacy.html
 
-styles.css?v=N              → Main stylesheet; version-bumped when CSS changes
-script.js?v=N                → Main JavaScript; version-bumped when JS changes
+styles.css?v=N              → Main stylesheet; version-bumped when CSS changes (current: styles.css?v=14)
+script.js?v=N                → Main JavaScript; version-bumped when JS changes (current: script.js?v=10)
 
 logo.png                    → Gradient "V" monogram (amber → magenta), built with code/PIL
-images/                     → Full-resolution JPG wallpapers only
-images/thumbs/              → Compressed JPG thumbnails ONLY
+images/                     → Full-resolution JPG wallpapers only (101 wallpapers)
+images/thumbs/              → Compressed JPG thumbnails ONLY (360x640)
 ```
 
 Filename convention:
@@ -112,7 +112,7 @@ Always inspect the actual repository before making structural changes. This docu
 Current known card pattern:
 
 ```html
-<div class="card" data-resolution="1440 × 2560" data-size="1.9 MB">
+<div class="card" data-category="amoled" data-resolution="1440 × 2560" data-size="1.9 MB">
   <img src="images/thumbs/amoled-circuit-whisper.jpg" data-full="images/amoled-circuit-whisper.jpg" alt="Descriptive alt text" loading="lazy">
   <div class="label">Wallpaper Name</div>
 </div>
@@ -124,6 +124,7 @@ Current known card pattern:
 - Do not blindly rely on this example if the actual implementation has evolved.
 - New cards normally go at the top of `index.html`'s wallpaper grid because the homepage is newest-first.
 - Add the card to the appropriate category page as well.
+- On `index.html`, ensure the `data-category="<category>"` attribute is included (e.g. `amoled`, `nightsky`, `abstract`, `heroic`, `architecture`, `landscape`) to support instant filter chips.
 - Preserve existing classes, attributes, paths, and JavaScript expectations.
 - Ensure the thumbnail path points to `images/thumbs/`.
 - Ensure `data-full` points to the corresponding full-resolution image.
@@ -134,14 +135,14 @@ Current known card pattern:
 
 ## 6. Categories and wallpaper standards
 
-Current categories:
+Current categories (101 wallpapers total):
 
-- Abstract
-- Landscape
-- Architecture
-- Night Sky
-- AMOLED
-- Heroic
+- **AMOLED:** 22 wallpapers
+- **Night Sky:** 16 wallpapers
+- **Abstract:** 16 wallpapers
+- **Heroic:** 15 wallpapers
+- **Architecture:** 16 wallpapers
+- **Landscape:** 16 wallpapers
 
 An **Illustrated** category is planned but not yet built.
 
@@ -628,6 +629,50 @@ These edits were present in the workspace when this snapshot was written. Treat 
 ### Suggested opening prompt for the next agent
 
 “Read `vespera-fx-project-brain.md` and `README.md`, inspect the current Git status and diffs, then continue the in-progress responsive/layout cleanup. Preserve all existing workspace edits, report any issues you find, and do not commit or publish without my instruction.”
+
+---
+
+## 11.2 Handover snapshot — 2026-09-30 (101 Wallpapers, Design Refresh & Interactive Features)
+
+This snapshot records the major milestones achieved on September 29–30, 2026:
+
+### 1. Catalog Expanded to 101 Wallpapers
+- Added 33 new high-quality wallpapers across all categories (bringing total from 68 to 101).
+- Generated 360x640 compressed preview thumbnails in `images/thumbs/`.
+- Preserved original genuine JPG quality without compression; handled lossless conversion for mislabeled PNGs.
+- Staged, committed, and pushed image batches cleanly to GitHub Pages in commits up to `e2d5907`.
+
+### 2. Design System Refresh
+- **Typography:** Upgraded font from system stack to Google Font **Plus Jakarta Sans** with preconnect tags.
+- **Atmosphere:** Added subtle cosmic ambient radial mesh gradient in `styles.css`.
+- **Navigation:** Frosted-glass sticky header (`backdrop-filter: blur(20px)`).
+- **Hero:** Pure-white high-contrast heading text (`#FFFFFF`) for pristine readability.
+
+### 3. Instant Category Filter Chips
+- Added interactive category pills on `index.html` (`All 101`, `AMOLED 22`, `Night Sky 16`, `Abstract 16`, `Heroic 15`, `Architecture 16`, `Landscape 16`).
+- Integrated seamlessly with client-side text search in `script.js`.
+- Polished active pill design with Vespera violet gradient (`linear-gradient(135deg, #7470FF, #605BFF)`) and inset dark counter pill.
+
+### 4. Interactive Phone Lock Screen Preview
+- Built `.lockscreen-overlay` inside the lightbox viewer across all 7 gallery pages.
+- Real-time digital clock (`HH:MM`), formatted date, lock icon, and bottom frosted-glass flashlight/camera action buttons.
+- Toggle button in lightbox footer: "Preview Lock Screen" / "Hide Lock Screen".
+
+### 5. Enhanced Search Bar
+- Dark glass container with `backdrop-filter: blur(12px)` and violet focus glow.
+- Left SVG magnifying glass icon.
+- Global `/` keyboard shortcut to focus search anywhere on the page.
+- Keyboard `<kbd>/</kbd>` shortcut indicator (hidden on mobile/touch screens).
+- Frosted circular Clear (`×`) button shown dynamically when query text is present.
+- `Escape` key clears text or blurs search bar.
+- Page-specific placeholders across all 7 gallery pages.
+
+### 6. Cache Busting Status
+- `styles.css?v=14` in all 9 active HTML pages.
+- `script.js?v=10` in all 7 gallery HTML pages.
+
+### 7. Next Roadmap Items
+- Quick Download icon on wallpaper card hover (1-click download directly from the grid).
 
 ---
 
